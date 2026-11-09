@@ -22,7 +22,7 @@ $sql = 'SELECT books.title,
         WHERE (books.title LIKE :title OR books.author LIKE :author)';
 $params = [':title' => $pattern, ':author' => $pattern];
 
-// Optional filter: subject id (whole number, 1 or more)
+// Subject id (whole number, 1 or more)
 $subject = filter_input(INPUT_GET, 'subject', FILTER_VALIDATE_INT, [
     'options' => ['min_range' => 1],
 ]);
@@ -31,7 +31,7 @@ if (is_int($subject)) {
     $params[':subject'] = $subject;
 }
 
-// Optional filter: only books on the shelf
+// Only books on the shelf
 if (($_GET['available'] ?? '') === '1') {
     $sql .= ' AND books.copies - books.on_loan > 0';
 }
