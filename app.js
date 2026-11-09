@@ -6,7 +6,7 @@ const statusEl = document.querySelector('#status');
 const table = document.querySelector('#results');
 const tbody = table.querySelector('tbody');
 
-// Exercise 5: fill the Subject list
+// Filling the Subject list
 async function loadSubjects() {
   try {
     const response = await fetch('subjects.php');
@@ -25,7 +25,7 @@ async function loadSubjects() {
   }
 }
 
-// Exercises 6 and 7: fetch and show the books
+// Fetching and showing the books
 async function searchBooks() {
   button.disabled = true;
   statusEl.textContent = 'Searching…';
